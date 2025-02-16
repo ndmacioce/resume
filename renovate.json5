@@ -1,0 +1,36 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "groupName": "all dependencies",
+      "groupSlug": "all-dependencies",
+      "schedule": ["at any time"]
+    },
+    {
+      "matchPackagePatterns": ["@types/*"],
+      "groupName": "types",
+      "groupSlug": "types",
+      "schedule": ["at any time"]
+    },
+    {
+      "matchPackagePatterns": ["eslint", "prettier", "postcss", "tailwindcss"],
+      "groupName": "linters and formatters",
+      "groupSlug": "linters-formatters",
+      "schedule": ["at any time"]
+    }
+  ],
+  "node": {
+    "enabled": true,
+    "schedule": ["at any time"]
+  },
+  "rangeStrategy": "bump",
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 10,
+  "automerge": true,
+  "automergeType": "pr",
+  "platformAutomerge": true,
+  "labels": ["dependencies"]
+}
